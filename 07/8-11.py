@@ -3,6 +3,9 @@ with open('basnicka.txt', encoding='utf-8') as soubor:
 
 
 def obrat_poradi_versu(text):
+    '''
+    Dostane text, obrati poradi versu a text vypise.
+    '''
     seznam = text.split('\n')
     seznam.reverse()
 
@@ -14,6 +17,10 @@ obrat_poradi_versu(kytice)
 
 
 def obrat_poradi_slov(text):
+    '''
+    Dostane text, obrati poradi slov v jednotlivzch versich
+    a text vypise.
+    '''
     seznam = text.split('\n')
 
     for radek in seznam:
@@ -26,6 +33,9 @@ obrat_poradi_slov(kytice)
 
 
 def obrat_poradi_slok(text):
+    '''
+    Dostane text, obrati poradi slok a text vypise.
+    '''
     seznam = text.split('\n\n')
     seznam.reverse()
 

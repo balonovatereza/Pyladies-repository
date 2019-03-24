@@ -2,6 +2,9 @@ from random import randrange
 
 
 def nakresli_mapu(vyska, sirka, potrava, had, tajemna_potrava):
+    '''
+    Na vysku a sirku vygeneruje a vrati seznam radku hraciho pole.
+    '''
     seznam_radku = []
     for y in range(vyska):
         radek = []
@@ -19,15 +22,25 @@ def nakresli_mapu(vyska, sirka, potrava, had, tajemna_potrava):
 
 
 def vygeneruj_potravu(vyska, sirka, had, potrava, tajemna_potrava):
+    '''
+    Nahodne vygeneruje souradnice potravy, proveri, zda nejsou v seznamu
+    hada, potravy nebo tajemne potravy a vrati tyto souradnice.
+    '''
     while True:
         x = randrange(sirka)
         y = randrange(vyska)
         if (x, y) not in had and (x, y) not in potrava and (x, y) not in tajemna_potrava:
-            print(x, y)
             return (x, y)
 
 
 def pohyb(vyska, sirka, had, svetova_strana, potrava):
+    '''
+    Vezme posledni souradnice hada(hlavu) a podle smeru pohybu spocita novy krok,
+    proveri, zda souradnice noveho kroku nejsou v seznamu hada nebo mimo hraci pole,
+    proveri, zda novy krok neni v seznamu potravy, pokud ano, umaze potravu
+    a vygeneruje novou, pokud ne, umaze hadovi konec ocasu.
+
+    '''
     x, y = had[-1]
     if svetova_strana == 's':
         novy_krok = x, y-1
@@ -51,7 +64,6 @@ def pohyb(vyska, sirka, had, svetova_strana, potrava):
         del potrava[0]
         potrava.append(vygeneruj_potravu(vyska, sirka, had, potrava, tajemna_potrava))
     had.append(novy_krok)
-    print(had)
 
 
 had = [(0, 0), (1, 0), (2, 0)]
@@ -60,6 +72,10 @@ tajemna_potrava = []
 
 
 def zadej_velikost_pole():
+    '''
+    Vyzyva hrace k zadani vysky a sirky hraciho pole, proveri, zda se jedna
+    o celociselne hodnoty, zda je hraci pole vetsi 4x1 a vrati vysku a sirku.
+    '''
     while True:
         vyska = input('Zadej vysku hraciho pole: ')
         sirka = input('Zadej sirku hraciho pole: ')
@@ -75,11 +91,11 @@ def zadej_velikost_pole():
             return vyska, sirka
 
 
-counter = 0
+counter = 0  # pocitadlo tahu
 vyska, sirka = zadej_velikost_pole()
 while True:
     mapa = nakresli_mapu(vyska, sirka, potrava, had, tajemna_potrava)
-    for radek in mapa:
+    for radek in mapa:  # vykresli hraci pole
         for znak in radek:
             print(znak, end=' ')
         print()
@@ -91,4 +107,3 @@ while True:
         print('Takovy smer neznam, zadej pouze s, j, v nebo z: ')
     else:
         pohyb(vyska, sirka, had, svetova_strana, potrava)
-print(had)
