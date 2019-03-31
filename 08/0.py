@@ -11,9 +11,4 @@ def vytvor_slovnik_mocnin(n):
 n = int(input('Zadej cislo a ja vytvorim slovnik s mocninami: '))
 
 
-def vypis_slovnik(slovnik):
-    for klic, hodnota in slovnik.items():
-        print('Klic {}: hodnota {}'.format(klic, hodnota))
-
-
-vypis_slovnik(vytvor_slovnik_mocnin(n))
+vytvor_slovnik_mocnin(n)

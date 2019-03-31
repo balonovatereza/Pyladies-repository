@@ -9,6 +9,9 @@ text = 'Tempora mutantur et nos mutamur in illis.'
 
 
 def vypis_slovnik(slovnik):
+    '''
+    Vypise obsah slovniku na jednotlive radky.
+    '''
     for klic, hodnota in slovnik.items():
         print('Klic {}: hodnota {}'.format(klic, hodnota))
 

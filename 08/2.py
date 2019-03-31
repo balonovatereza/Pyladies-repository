@@ -1,4 +1,9 @@
 def pocet_jednotlivych_znaku1(text):
+    '''
+    Dostane řetězec a vrátí slovník, ve kterém budou jako klíče znaky ze
+    zadaného řetězce a jako hodnoty počty výskytů těchto znaků v řetězci.
+    Zpracovani pomoci seznamu dvojic.
+    '''
     seznam_dvojic = []
     seznam = list(text)
     for pismeno in seznam:
@@ -14,6 +19,9 @@ print(pocet_jednotlivych_znaku1('Tempora mutantur et nos mutamur in illis.'))
 
 
 def pocet_jednotlivych_znaku2(text):
+    '''
+    Kratka verze te stejne funkce.
+    '''
     pocty_pismen = {}
     for pismeno in range(len(text)):
         pocty_pismen[text[pismeno]] = text.count(text[pismeno])
@@ -21,16 +29,3 @@ def pocet_jednotlivych_znaku2(text):
 
 
 print(pocet_jednotlivych_znaku2('Tempora mutantur et nos mutamur in illis.'))
-
-
-def pocet_jednotlivych_znaku3(text):
-    '''
-
-    '''
-    pocty_pismen = {}
-    for i in range(len(text)):
-        pocty_pismen.setdefault(text[i], text.count(text[i]))
-    return pocty_pismen
-
-
-print(pocet_jednotlivych_znaku3('Tempora mutantur et nos mutamur in illis.'))
