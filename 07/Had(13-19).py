@@ -5,20 +5,17 @@ def nakresli_mapu(vyska, sirka, potrava, had, tajemna_potrava):
     '''
     Na vysku a sirku vygeneruje a vrati seznam radku hraciho pole.
     '''
-    seznam_radku = []
     for y in range(vyska):
-        radek = []
         for x in range(sirka):
             if (x, y) in potrava:
-                radek.append('X')
+                print('o', end=' ')
             elif (x, y) in had:
-                radek.append('X')
+                print('x', end=' ')
             elif (x, y) in tajemna_potrava:
-                radek.append('?')
+                print('?', end=' ')
             else:
-                radek.append('.')
-        seznam_radku.append(radek)
-    return seznam_radku
+                print('.', end=' ')
+        print()
 
 
 def vygeneruj_potravu(vyska, sirka, had, potrava, tajemna_potrava):
@@ -93,12 +90,9 @@ def zadej_velikost_pole():
 
 counter = 0  # pocitadlo tahu
 vyska, sirka = zadej_velikost_pole()
+x, y = had[-1]
 while True:
     mapa = nakresli_mapu(vyska, sirka, potrava, had, tajemna_potrava)
-    for radek in mapa:  # vykresli hraci pole
-        for znak in radek:
-            print(znak, end=' ')
-        print()
     counter = counter + 1
     if counter % 30 == 0:
         tajemna_potrava.append(vygeneruj_potravu(vyska, sirka, had, potrava, tajemna_potrava))
