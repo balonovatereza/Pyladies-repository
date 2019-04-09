@@ -7,38 +7,38 @@ def test_vyhodnot_vyhra_x():
     """
     Křížky vyhrály.
     """
-    assert vyhodnot("xxx-----------------") == "x"
-    assert vyhodnot("--------xxx---------") == "x"
-    assert vyhodnot("-----------------xxx") == "x"
-    assert vyhodnot("-xoxoxxxoxoxoxoxoxox") == "x"
-    assert vyhodnot("-xooxxooxxooxxoxxxoo") == "x"
-    assert vyhodnot("xxxoxoxoxoxoxoxoxox-") == "x"
-    assert vyhodnot("oxxxoxoxxooxxooxxoo-") == "x"
-    assert vyhodnot("oxoxoxoxo-oxoxoxoxxx") == "x"
-    assert vyhodnot("xxooxxoox-ooxxooxxxo") == "x"
+    assert vyhodnot("xxx-----------------", "x", "o") == "x"
+    assert vyhodnot("--------xxx---------", "x", "o") == "x"
+    assert vyhodnot("-----------------xxx", "x", "o") == "x"
+    assert vyhodnot("-xoxoxxxoxoxoxoxoxox", "x", "o") == "x"
+    assert vyhodnot("-xooxxooxxooxxoxxxoo", "x", "o") == "x"
+    assert vyhodnot("xxxoxoxoxoxoxoxoxox-", "x", "o") == "x"
+    assert vyhodnot("oxxxoxoxxooxxooxxoo-", "x", "o") == "x"
+    assert vyhodnot("oxoxoxoxo-oxoxoxoxxx", "x", "o") == "x"
+    assert vyhodnot("xxooxxoox-ooxxooxxxo", "x", "o") == "x"
 
 
 def test_vyhodnot_vyhra_o():
     """
     Kolečka vyhrála.
     """
-    assert vyhodnot("ooo-----------------") == "o"
-    assert vyhodnot("--------ooo---------") == "o"
-    assert vyhodnot("-----------------ooo") == "o"
-    assert vyhodnot("-xoxoxoxoooxoxoxoxox") == "o"
-    assert vyhodnot("-xoooxooxxooxxooxxoo") == "o"
-    assert vyhodnot("xoooxoxoxoxoxoxoxox-") == "o"
-    assert vyhodnot("oooxxooxxooxxooxxoo-") == "o"
-    assert vyhodnot("oxoxoxoxo-oxoxoxooox") == "o"
-    assert vyhodnot("xxooxxoox-ooxxooxooo") == "o"
+    assert vyhodnot("ooo-----------------", "x", "o") == "o"
+    assert vyhodnot("--------ooo---------", "x", "o") == "o"
+    assert vyhodnot("-----------------ooo", "x", "o") == "o"
+    assert vyhodnot("-xoxoxoxoooxoxoxoxox", "x", "o") == "o"
+    assert vyhodnot("-xoooxooxxooxxooxxoo", "x", "o") == "o"
+    assert vyhodnot("xoooxoxoxoxoxoxoxox-", "x", "o") == "o"
+    assert vyhodnot("oooxxooxxooxxooxxoo-", "x", "o") == "o"
+    assert vyhodnot("oxoxoxoxo-oxoxoxooox", "x", "o") == "o"
+    assert vyhodnot("xxooxxoox-ooxxooxooo", "x", "o") == "o"
 
 
 def test_vyhodnot_remiza():
     """
     Nastala remíza.
     """
-    assert vyhodnot("oxoxoxoxoxoxoxoxoxox") == "!"
-    assert vyhodnot("xxooxxooxxooxxooxxoo") == "!"
+    assert vyhodnot("oxoxoxoxoxoxoxoxoxox", "x", "o") == "!"
+    assert vyhodnot("xxooxxooxxooxxooxxoo", "x", "o") == "!"
 
 
 def test_vyhodnot_hra():
