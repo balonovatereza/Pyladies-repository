@@ -45,8 +45,8 @@ knihovnami. OpenGL pouziva matematicky souradny system, nula je vlevo *dole*.
 # A ted uz k samotne hre: napred naimportujeme potrebne veci z knihovny pyglet
 
 import random
-
 import pyglet
+
 from pyglet import gl
 from pyglet.window import key
 
