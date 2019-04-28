@@ -8,12 +8,13 @@ class Ctverec:
     def obsah(self):
         return self.strana ** 2
 
-    def rozdil_obsahu(self, jiny_ctverec):
+    def rozdil_obsahu(self, druhy_ctverec):
         return self.obsah() - druhy_ctverec.obsah()
 
 
 prvni_ctverec = Ctverec(2)
 druhy_ctverec = Ctverec(4)
+prvni_ctverec.rozdil_obsahu(druhy_ctverec)
 
 print(prvni_ctverec.obvod())
 print(prvni_ctverec.obsah())
